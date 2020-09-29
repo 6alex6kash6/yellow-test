@@ -1,27 +1,10 @@
-.Login {
-  height: 100%;
+
+.Login-main {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
 
-  &-main {
-    display: flex;
-    flex-direction: column;
-
-    & img {
-      margin-bottom: 50px;
-    }
-
-    &-button {
-      outline: none;
-      border: #e990f9 solid 5px;
-      border-radius: 36px;
-      background: #ffffff;
-      padding: 19px 36px;
-      color: #e990f9;
-      font-size: 18px;
-      font-weight: bold;
-      margin-top: 50px;
-    }
+  & img {
+    margin-bottom: 50px;
   }
+
 }
