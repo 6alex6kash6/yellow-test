@@ -1,0 +1,50 @@
+.add-jog {
+  height: 380px;
+  width: 307px;
+  background: #7ed321;
+  border-radius: 29px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+
+    & input {
+      width: 100%;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      height: 31px;
+      outline: none;
+      border: none;
+    }
+
+    & input[type='submit'] {
+      height: 42px;
+      border-radius: 25px;
+      background: transparent;
+      color: #ffffff;
+      border: #ffffff solid 3px;
+    }
+
+
+    & label {
+      align-self: flex-start;
+      margin-bottom: 4px;
+    }
+  }
+  &__close{
+    position: absolute;
+    top: 15px;
+    right: 18px;
+    transition: 0.3s;
+    cursor: pointer;
+    &:hover{
+      transform: scale(1.1);
+    }
+  }
+}

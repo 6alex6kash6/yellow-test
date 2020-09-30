@@ -10,7 +10,7 @@ export default function Jogs() {
         <img src={sadEmoticon} alt="sad-emoticon"/>
         <p>Nothing is there</p>
       </div>
-      <button><Link>Create your jog first</Link></button>
+      <button><Link to='/add'>Create your jog first</Link></button>
     </div>
   )
   return (
