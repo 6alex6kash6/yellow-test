@@ -13,17 +13,17 @@ import { JogsService } from '../../services/jogsService.js'
 
 export default function App() {
   const jogsService = new JogsService()
-  const { getTest } = jogsService
+  const { getJogs } = jogsService
   return (
     <div className="App">
       <Router>
         <Header/>
         <Switch>
           <Route exact path='/'>
-            <Login getTest={getTest}/>
+            <Login />
           </Route>
           <Route path='/jogs'>
-            <Jogs/>
+            <Jogs getJogs={getJogs}/>
           </Route>
           <Route path='/add'>
             <AddJog/>

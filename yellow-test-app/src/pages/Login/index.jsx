@@ -3,11 +3,9 @@ import './Login.scss'
 import bearFace from '../../assets/bearFace.png'
 import { Link } from 'react-router-dom';
 
-export default function Login({ getTest }) {
+export default function Login() {
   const handleAuth = () => {
-    getTest().then((e) => {
-      console.log(e)
-    })
+    console.log('authed')
   }
   return (
     <div className='page'>
