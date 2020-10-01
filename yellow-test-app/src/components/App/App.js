@@ -9,15 +9,18 @@ import {
   Route,
 } from "react-router-dom";
 import AddJog from "../../pages/AddJog";
+import { JogsService } from '../../services/jogsService.js'
 
 export default function App() {
+  const jogsService = new JogsService()
+  const { getTest } = jogsService
   return (
     <div className="App">
       <Router>
         <Header/>
         <Switch>
-          <Route path='/login'>
-            <Login/>
+          <Route exact path='/'>
+            <Login getTest={getTest}/>
           </Route>
           <Route path='/jogs'>
             <Jogs/>
