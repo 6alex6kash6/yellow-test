@@ -1,6 +1,7 @@
 .Jogs-empty {
   display: flex;
   flex-direction: column;
+
   &__sad {
     display: flex;
     flex-direction: column;
@@ -10,4 +11,11 @@
     font-size: 24px;
     color: #b0abab;
   }
+}
+
+.jogs-wrapper-add {
+  position: sticky;
+  bottom: 35px;
+  left: 85%;
+  cursor: pointer;
 }

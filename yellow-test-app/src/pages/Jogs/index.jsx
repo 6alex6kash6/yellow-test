@@ -3,9 +3,12 @@ import './Jogs.scss';
 import sadEmoticon from '../../assets/sadEmoticon.png';
 import { Link } from 'react-router-dom';
 import JogDetails from "../../components/JogDetails";
+import addBtn from '../../assets/add-btn.png'
+import { useHistory } from "react-router-dom";
 
 export default function Jogs({ getJogs }) {
   const [ jogs, setJogs ] = useState([])
+
   useEffect(() => {
     const fetchData = async () => {
       const jogsList = await getJogs();
@@ -14,6 +17,13 @@ export default function Jogs({ getJogs }) {
     }
     fetchData();
   }, [ getJogs ])
+
+  const history = useHistory();
+
+  const handleClick = () => {
+    history.push('/add')
+  }
+
   const emptyJog = (
     <div className='page'>
       <div className='Jogs-empty'>
@@ -27,7 +37,7 @@ export default function Jogs({ getJogs }) {
   )
   const jogsArray = jogs.map((item, i) => {
     return (
-      <div>
+      <div key={i} className='jogs-wrapper'>
         <JogDetails data={item}/>
       </div>
     )
@@ -35,6 +45,7 @@ export default function Jogs({ getJogs }) {
   return (
     <>
       {jogs.length === 0 ? emptyJog : jogsArray}
+      <img src={addBtn} alt="add-button" className='jogs-wrapper-add' onClick={handleClick}/>
     </>
   )
 }

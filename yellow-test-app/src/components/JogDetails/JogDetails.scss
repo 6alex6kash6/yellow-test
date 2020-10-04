@@ -5,6 +5,10 @@
   justify-content: space-around;
   width: 100%;
   padding: 30px 40px 30px 40px;
-  border-bottom: black solid 1px;
-
+  border-bottom: #b0abab solid 1px;
+& p{
+  font-size: 14px;
+  color: #000000;
+  font-weight: bold;
+}
 }

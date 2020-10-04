@@ -13,7 +13,7 @@ import { JogsService } from '../../services/jogsService.js'
 
 export default function App() {
   const jogsService = new JogsService()
-  const { getJogs } = jogsService
+  const { getJogs,addJog } = jogsService
   return (
     <div className="App">
       <Router>
@@ -26,7 +26,7 @@ export default function App() {
             <Jogs getJogs={getJogs}/>
           </Route>
           <Route path='/add'>
-            <AddJog/>
+            <AddJog addJog={addJog}/>
           </Route>
         </Switch>
 
