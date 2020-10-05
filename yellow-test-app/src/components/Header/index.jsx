@@ -4,17 +4,37 @@ import logo from '../../assets/logo.png';
 import burgerMenu from '../../assets/burger-menu.png'
 import { Drawer } from 'antd';
 import logoGreen from '../../assets/logo-green.png'
+import filterDisabled from '../../assets/filter-enabled.png'
+import filterEnabled from '../../assets/filterActive.png'
+import { Link } from 'react-router-dom'
 
-export default function Header() {
+export default function Header({ setShowPicker }) {
   const [ visible, setVisible ] = useState(false);
+  let togglePicker;
   const showDrawer = () => {
     setVisible(true);
   };
+  const showDatePicker = () => {
+    togglePicker = true
+    setShowPicker(true)
+    setFilterIcon(filterEnabledLogo)
+  }
+  const closeDatePicker = () => {
+    togglePicker = false
+    setShowPicker(false)
+    setFilterIcon(filterDisabledLogo)
+  }
   const logoBurger = (<img src={logoGreen} alt="green-logo"/>)
+  const filterEnabledLogo = (<img src={filterEnabled} alt="burger-menu" onClick={closeDatePicker}
+                              style={{ marginRight: '40px', cursor: 'pointer' }}/>)
+  const filterDisabledLogo = (<img src={filterDisabled} alt="burger-menu" onClick={showDatePicker}
+                               style={{ marginRight: '40px', cursor: 'pointer' }}/>)
+  const [filterIcon,setFilterIcon] = useState(filterDisabledLogo)
+
   const links = (
     <div className='links-mobile'>
-      <p>Jogs</p>
-      <p>Info</p>
+      <p onClick={() => setVisible(false)}><Link to='/jogs'>Jogs</Link></p>
+      <p onClick={() => setVisible(false)}><Link to='/info'>Info</Link></p>
       <p>Contact us</p>
     </div>
   )
@@ -24,7 +44,11 @@ export default function Header() {
   return (
     <div className='Header'>
       <img src={logo} alt="main-logo"/>
-      <img src={burgerMenu} alt="burger-menu" onClick={showDrawer}/>
+      <div>
+        {filterIcon}
+        <img src={burgerMenu} alt="burger-menu" onClick={showDrawer} style={{ cursor: 'pointer' }}/>
+      </div>
+
       <Drawer
         title={logoBurger}
         placement="right"

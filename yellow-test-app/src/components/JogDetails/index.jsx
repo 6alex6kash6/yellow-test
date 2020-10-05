@@ -4,12 +4,9 @@ import runIcon from '../../assets/run-icon.png'
 
 export default function JogDetails({ data }) {
   const correctDate = new Date(data.date).toDateString()
-  useEffect(()=>{
-    console.log(data.date)
-  })
   const speed = Math.round(data.distance / (data.time / 60))
   return (
-    <div className='jog-item' >
+    <div className='jog-item'>
       <img src={runIcon} alt="run-icon" width='87px' height='87px'/>
       <div className='jog-item-details'>
         <span>{correctDate.slice(3)}</span>

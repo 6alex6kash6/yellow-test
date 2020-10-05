@@ -10,13 +10,11 @@ export default function AddJog({ addJog }) {
   const [valid,setValid] = useState('')
   const history = useHistory();
   const dateRegEx = new RegExp(/([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/)
-  let dateInputClass;
   const handleClick = () => {
     history.push('/jogs')
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(distance, time, date)
     addJog(distance, time, date)
   }
   const handleDistanceChange = (event) => {

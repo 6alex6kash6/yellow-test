@@ -13,6 +13,11 @@
   left: 50%;
   transform: translate(-50%,-80%);
   text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+  & p:hover{
+    color:#7ed321;
+  }
   & p{
     font-size: 25px;
     font-weight: bold;
