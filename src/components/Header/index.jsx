@@ -10,32 +10,28 @@ import { Link } from 'react-router-dom'
 
 export default function Header({ setShowPicker }) {
   const [ visible, setVisible ] = useState(false);
-  let togglePicker;
   const showDrawer = () => {
     setVisible(true);
   };
   const showDatePicker = () => {
-    togglePicker = true
     setShowPicker(true)
     setFilterIcon(filterEnabledLogo)
   }
   const closeDatePicker = () => {
-    togglePicker = false
     setShowPicker(false)
     setFilterIcon(filterDisabledLogo)
   }
   const logoBurger = (<img src={logoGreen} alt="green-logo"/>)
   const filterEnabledLogo = (<img src={filterEnabled} alt="burger-menu" onClick={closeDatePicker}
-                              style={{ marginRight: '40px', cursor: 'pointer' }}/>)
+                                  style={{ marginRight: '40px', cursor: 'pointer' }}/>)
   const filterDisabledLogo = (<img src={filterDisabled} alt="burger-menu" onClick={showDatePicker}
-                               style={{ marginRight: '40px', cursor: 'pointer' }}/>)
-  const [filterIcon,setFilterIcon] = useState(filterDisabledLogo)
-
+                                   style={{ marginRight: '40px', cursor: 'pointer' }}/>)
+  const [ filterIcon, setFilterIcon ] = useState(filterDisabledLogo)
   const links = (
     <div className='links-mobile'>
       <p onClick={() => setVisible(false)}><Link to='/jogs'>Jogs</Link></p>
       <p onClick={() => setVisible(false)}><Link to='/info'>Info</Link></p>
-      <p><Link to='#'>Contact us</Link> </p>
+      <p><Link to='#'>Contact us</Link></p>
     </div>
   )
   const onClose = () => {

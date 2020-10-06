@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React  from "react";
 import './JogDetails.scss';
 import runIcon from '../../assets/run-icon.png'
 

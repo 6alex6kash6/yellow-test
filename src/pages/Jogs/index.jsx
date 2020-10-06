@@ -13,7 +13,7 @@ export default function Jogs({ getJogs, showPicker }) {
   const [ datePicker, setDatePicker ] = useState()
   useEffect(() => {
     setDatePicker(showPicker)
-  })
+  },[showPicker])
   useEffect(() => {
     const fetchData = async () => {
       const jogsList = await getJogs();
