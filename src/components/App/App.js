@@ -15,7 +15,7 @@ import Info from '../../pages/Info'
 export default function App() {
   const jogsService = new JogsService()
   const[showPicker,setShowPicker] = useState(false)
-  const { getJogs, addJog } = jogsService;
+  const { getJogs, addJog,saveTokenToLocalStorage } = jogsService;
   const parentCallback = (dataFromChild) => {
    setShowPicker(dataFromChild)
   }
@@ -25,7 +25,7 @@ export default function App() {
         <Header setShowPicker={parentCallback}/>
         <Switch>
           <Route exact path='/'>
-            <Login/>
+            <Login saveToken = {saveTokenToLocalStorage}/>
           </Route>
           <Route path='/jogs'>
             <Jogs getJogs={getJogs} showPicker={showPicker}/>

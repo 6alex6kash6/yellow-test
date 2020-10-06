@@ -3,8 +3,9 @@ import './Login.scss'
 import bearFace from '../../assets/bearFace.png'
 import { Link } from 'react-router-dom';
 
-export default function Login() {
+export default function Login({saveToken}) {
   const handleAuth = () => {
+    saveToken()
     console.log('authed')
   }
   return (

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './Header.scss';
 import logo from '../../assets/logo.png';
 import burgerMenu from '../../assets/burger-menu.png'
@@ -9,7 +9,8 @@ import filterEnabled from '../../assets/filterActive.png'
 import { Link } from 'react-router-dom'
 
 export default function Header({ setShowPicker }) {
-  const [ visible, setVisible ] = useState(false);
+  const [ visible, setVisible ] = useState(false)
+
   const showDrawer = () => {
     setVisible(true);
   };
@@ -37,12 +38,17 @@ export default function Header({ setShowPicker }) {
   const onClose = () => {
     setVisible(false);
   };
+  const headNav = (
+    <>
+      {filterIcon}
+      < img src={burgerMenu} alt="burger-menu" onClick={showDrawer} style={{ cursor: 'pointer' }}/>
+    </>
+  )
   return (
     <div className='Header'>
       <img src={logo} alt="main-logo"/>
       <div>
-        {filterIcon}
-        <img src={burgerMenu} alt="burger-menu" onClick={showDrawer} style={{ cursor: 'pointer' }}/>
+        {headNav}
       </div>
 
       <Drawer
