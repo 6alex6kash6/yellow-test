@@ -10,11 +10,10 @@ import { DatePicker } from 'antd';
 const { RangePicker } = DatePicker;
 export default function Jogs({ getJogs, showPicker }) {
   const [ jogs, setJogs ] = useState([])
-  const [datePicker,setDatePicker]=useState()
-  useEffect(()=>{
+  const [ datePicker, setDatePicker ] = useState()
+  useEffect(() => {
     setDatePicker(showPicker)
   })
-
   useEffect(() => {
     const fetchData = async () => {
       const jogsList = await getJogs();
@@ -25,6 +24,17 @@ export default function Jogs({ getJogs, showPicker }) {
   const history = useHistory();
   const handleClick = () => {
     history.push('/add')
+  }
+  const test = (dates) => {
+    if(dates[1]!==null) {
+      const dateFrom = Date.parse(dates[0]._d)
+      const dateTo = Date.parse(dates[1]._d)
+      const filtredJogs = jogs.filter((item) =>
+        item.date > dateFrom && item.date < dateTo
+      )
+      setJogs(filtredJogs)
+    }
+    console.log(dates)
   }
   const emptyJog = (
     <div className='page'>
@@ -46,7 +56,7 @@ export default function Jogs({ getJogs, showPicker }) {
   })
   return (
     <>
-      {datePicker && <RangePicker className='date-picker'/>}
+      {datePicker && <RangePicker className='date-picker' onCalendarChange={test}/>}
       {/*{emptyJog}*/}
       {jogs.length === 0 ? emptyJog : jogsArray}
       <img src={addBtn} alt="add-button" className='jogs-wrapper-add' onClick={handleClick}/>

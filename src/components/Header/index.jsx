@@ -35,7 +35,7 @@ export default function Header({ setShowPicker }) {
     <div className='links-mobile'>
       <p onClick={() => setVisible(false)}><Link to='/jogs'>Jogs</Link></p>
       <p onClick={() => setVisible(false)}><Link to='/info'>Info</Link></p>
-      <p>Contact us</p>
+      <p><Link to='#'>Contact us</Link> </p>
     </div>
   )
   const onClose = () => {
